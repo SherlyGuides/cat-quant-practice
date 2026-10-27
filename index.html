@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAT Quant Practice</title>
+<meta name="description" content="Free CAT-style quantitative aptitude practice: original questions by topic block, each with four options, a step-by-step solution and an explanation of the idea behind it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#" aria-label="CAT Quant Practice home"><span class="mark" aria-hidden="true">Q</span><span>CAT Quant Practice</span></a>
+</header>
+
+<main id="main" class="wrap">
+  <!-- Home -->
+  <section id="home" class="screen">
+    <div class="hero">
+      <p class="eyebrow">Free practice · original questions</p>
+      <h1>Five questions per block, explained step by step</h1>
+      <p class="lede">Pick a block. Answer each question, then read the full solution and the idea behind it, including why the wrong options are tempting.</p>
+    </div>
+    <div class="blocks" id="blocks"></div>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz" class="screen" hidden>
+    <div class="quiz-head">
+      <button class="link" id="quitBtn" type="button">← All blocks</button>
+      <span class="count" id="qCount"></span>
+    </div>
+    <div class="bar" aria-hidden="true"><i id="qBar"></i></div>
+    <article class="card qcard">
+      <div class="tags"><span class="tag" id="qTopic"></span><span class="tag lvl" id="qLevel"></span></div>
+      <h2 class="qtext" id="qText"></h2>
+      <div class="opts" id="opts" role="group" aria-label="Answer options"></div>
+      <div class="feedback" id="feedback" hidden aria-live="polite">
+        <p class="verdict" id="verdict"></p>
+        <div class="panel">
+          <h3>Solution</h3>
+          <ol id="solution"></ol>
+        </div>
+        <div class="panel explain">
+          <h3>Why it works · what to watch for</h3>
+          <p id="explanation"></p>
+        </div>
+      </div>
+    </article>
+    <div class="actions">
+      <button class="btn primary" id="nextBtn" type="button" hidden>Next question</button>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="screen" hidden>
+    <div class="card score-card">
+      <p class="eyebrow" id="rBlock"></p>
+      <p class="score"><b id="rScore"></b><span id="rOf"></span></p>
+      <p class="lede" id="rMsg"></p>
+      <div class="actions">
+        <button class="btn primary" id="retryBtn" type="button">Try this block again</button>
+        <button class="btn" id="homeBtn" type="button">Choose another block</button>
+      </div>
+    </div>
+    <h2 class="sub">Your answers</h2>
+    <div id="review" class="review"></div>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <p>All questions, solutions and explanations here are original, written for practice in the style of CAT Quantitative Aptitude. They are not taken from any book or past paper. Every answer key is checked by computer before publishing.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,630 @@
+{
+ "title": "CAT Quant Practice",
+ "blocks": [
+  {
+   "id": "b1",
+   "name": "Numbers",
+   "blurb": "Remainders, factorials, factors, HCF & LCM, progressions",
+   "questions": [
+    {
+     "id": "b1q1",
+     "topic": "Remainders",
+     "level": "Medium",
+     "text": "What is the remainder when 7<sup>103</sup> is divided by 25?",
+     "options": [
+      "7",
+      "18",
+      "2",
+      "24"
+     ],
+     "answer": 1,
+     "solution": [
+      "7<sup>2</sup> = 49 = 50 − 1, so 7<sup>2</sup> leaves remainder −1 when divided by 25.",
+      "Then 7<sup>4</sup> = (7<sup>2</sup>)<sup>2</sup> leaves remainder (−1)<sup>2</sup> = 1.",
+      "103 = 4 × 25 + 3, so 7<sup>103</sup> = (7<sup>4</sup>)<sup>25</sup> × 7<sup>3</sup> leaves remainder 1<sup>25</sup> × 7<sup>3</sup> = 343.",
+      "343 = 13 × 25 + 18, so the remainder is <b>18</b>."
+     ],
+     "explanation": "Look for a small power of the base that is 1 or −1 more or less than a multiple of the divisor. Once you have it, the huge power collapses to a small one. Option 7 is the remainder of 7<sup>1</sup>; 24 is what you get if you stop at 7<sup>2</sup> ≡ −1 and forget the leftover 7<sup>3</sup>."
+    },
+    {
+     "id": "b1q2",
+     "topic": "Factorials",
+     "level": "Medium",
+     "text": "What is the highest power of 12 that divides 50! exactly?",
+     "options": [
+      "22",
+      "23",
+      "47",
+      "16"
+     ],
+     "answer": 0,
+     "solution": [
+      "12 = 2<sup>2</sup> × 3, so count the 2s and the 3s in 50!.",
+      "Power of 2 in 50! = ⌊50/2⌋ + ⌊50/4⌋ + ⌊50/8⌋ + ⌊50/16⌋ + ⌊50/32⌋ = 25 + 12 + 6 + 3 + 1 = 47.",
+      "Each 12 needs two 2s, so the 2s allow ⌊47/2⌋ = 23 twelves.",
+      "Power of 3 in 50! = ⌊50/3⌋ + ⌊50/9⌋ + ⌊50/27⌋ = 16 + 5 + 1 = 22.",
+      "The scarcer resource decides: min(23, 22) = <b>22</b>."
+     ],
+     "explanation": "For a composite divisor, split it into prime powers, count each prime in n! with the ⌊n/p⌋ + ⌊n/p²⌋ + … rule, divide by the exponent, and take the minimum. 23 is the trap of checking only the 2s; 47 forgets that 12 needs two 2s; 16 counts only the multiples of 3 once."
+    },
+    {
+     "id": "b1q3",
+     "topic": "Factors",
+     "level": "Easy",
+     "text": "How many factors of 2160 are perfect squares?",
+     "options": [
+      "4",
+      "8",
+      "6",
+      "12"
+     ],
+     "answer": 2,
+     "solution": [
+      "Factorise: 2160 = 2<sup>4</sup> × 3<sup>3</sup> × 5.",
+      "A perfect-square factor needs an even power of every prime.",
+      "Power of 2 can be 0, 2 or 4 (3 choices); power of 3 can be 0 or 2 (2 choices); power of 5 must be 0 (1 choice).",
+      "Total = 3 × 2 × 1 = <b>6</b>: 1, 4, 9, 16, 36, 144."
+     ],
+     "explanation": "Counting factors is always \"choices for each exponent, multiplied\". The square restriction just limits each exponent to even values. 8 comes from allowing 5<sup>1</sup>; 12 is the number of factors of 2<sup>4</sup> × 3<sup>2</sup>, which forgets the evenness rule on the 2s."
+    },
+    {
+     "id": "b1q4",
+     "topic": "HCF & LCM",
+     "level": "Hard",
+     "text": "Two positive numbers have HCF 12 and LCM 720. How many such pairs of numbers exist (order does not matter)?",
+     "options": [
+      "3",
+      "4",
+      "6",
+      "8"
+     ],
+     "answer": 1,
+     "solution": [
+      "Write the numbers as 12a and 12b with a and b co-prime.",
+      "LCM = 12ab = 720, so ab = 60 = 2<sup>2</sup> × 3 × 5.",
+      "Because a and b are co-prime, each prime power (4, 3, 5) must go wholly to a or wholly to b.",
+      "Three prime powers can be split in 2<sup>3</sup> = 8 ordered ways, i.e. 8/2 = <b>4</b> unordered pairs: (1, 60), (4, 15), (3, 20), (5, 12).",
+      "The number pairs are (12, 720), (48, 180), (36, 240), (60, 144)."
+     ],
+     "explanation": "With HCF h and LCM l, the problem reduces to splitting l/h into two co-prime parts: 2<sup>k−1</sup> unordered ways for k distinct primes. The common slip is splitting 60 into any two factors, e.g. (2, 30) or (6, 10), which are not co-prime and would change the HCF."
+    },
+    {
+     "id": "b1q5",
+     "topic": "Progressions",
+     "level": "Medium",
+     "text": "The sum of the first 20 terms of an arithmetic progression is 610 and the sum of the first 30 terms is 1365. What is its 40th term?",
+     "options": [
+      "122",
+      "116",
+      "119",
+      "120"
+     ],
+     "answer": 2,
+     "solution": [
+      "S<sub>n</sub> = (n/2)(2a + (n − 1)d).",
+      "S<sub>20</sub> = 10(2a + 19d) = 610, so 2a + 19d = 61.",
+      "S<sub>30</sub> = 15(2a + 29d) = 1365, so 2a + 29d = 91.",
+      "Subtract: 10d = 30, so d = 3 and 2a = 61 − 57 = 4, a = 2.",
+      "T<sub>40</sub> = a + 39d = 2 + 117 = <b>119</b>."
+     ],
+     "explanation": "Turning each sum into a \"2a + (n − 1)d\" equation gives two simple linear equations. Shortcut: S<sub>n</sub>/n is the average of the first n terms, which equals the term at position (n + 1)/2. So the 10.5th term is 30.5 and the 15.5th term is 45.5; 5 positions add 15, so d = 3. 122 and 116 are the 41st and 39th terms."
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "name": "Averages & Mixtures",
+   "blurb": "Averages, weighted averages, alligation, replacement",
+   "questions": [
+    {
+     "id": "b2q1",
+     "topic": "Averages",
+     "level": "Easy",
+     "text": "The average of 11 results is 50. The average of the first six is 49 and the average of the last six is 52. What is the sixth result?",
+     "options": [
+      "53",
+      "56",
+      "50",
+      "58"
+     ],
+     "answer": 1,
+     "solution": [
+      "Total of all 11 = 11 × 50 = 550.",
+      "First six total = 6 × 49 = 294; last six total = 6 × 52 = 312.",
+      "Adding the two groups counts the 6th result twice: 294 + 312 = 606.",
+      "Sixth result = 606 − 550 = <b>56</b>."
+     ],
+     "explanation": "Whenever two groups overlap in exactly one item, (group 1 total + group 2 total − overall total) isolates that item. Deviation method: the first six are 6 below average in total and the last six are 12 above, so the shared result is 50 − 6 + 12 = 56."
+    },
+    {
+     "id": "b2q2",
+     "topic": "Averages",
+     "level": "Easy",
+     "text": "The average age of 30 students is 14 years. When the teacher’s age is included, the average rises by 1 year. How old is the teacher?",
+     "options": [
+      "44",
+      "45",
+      "46",
+      "31"
+     ],
+     "answer": 1,
+     "solution": [
+      "Students’ total = 30 × 14 = 420.",
+      "With the teacher there are 31 people averaging 15: total = 465.",
+      "Teacher = 465 − 420 = <b>45</b>."
+     ],
+     "explanation": "Deviation shortcut: the teacher brings their own share of the new average (15) and also lifts each of the 30 students by 1. Teacher = 15 + 30 × 1 = 45. 44 uses 14 + 30; 31 forgets the teacher’s own share."
+    },
+    {
+     "id": "b2q3",
+     "topic": "Alligation",
+     "level": "Medium",
+     "text": "Milk costs ₹40 per litre. How many litres of water must be added to 60 litres of milk so that the mixture is worth ₹32 per litre?",
+     "options": [
+      "12",
+      "15",
+      "18",
+      "20"
+     ],
+     "answer": 1,
+     "solution": [
+      "Water costs nothing, so the value of the mixture is all from the milk: 60 × 40 = ₹2400.",
+      "At ₹32 per litre, ₹2400 buys 2400 ÷ 32 = 75 litres of mixture.",
+      "Water added = 75 − 60 = <b>15</b> litres."
+     ],
+     "explanation": "Alligation view: milk at 40 and water at 0 mix to 32, so milk : water = (32 − 0) : (40 − 32) = 4 : 1. 60 litres of milk needs 15 of water. 12 comes from taking 20% of 60, but the price falls by 20% because water becomes 20% of the final mixture, not 20% of the milk."
+    },
+    {
+     "id": "b2q4",
+     "topic": "Replacement",
+     "level": "Medium",
+     "text": "A vessel holds 80 litres of pure milk. 8 litres are taken out and replaced with water, and this is done three times in all. How much milk is left?",
+     "options": [
+      "56 litres",
+      "57.6 litres",
+      "58.32 litres",
+      "64.8 litres"
+     ],
+     "answer": 2,
+     "solution": [
+      "Each replacement removes 8/80 = 1/10 of whatever milk is in the vessel, leaving 9/10 of it.",
+      "After three rounds: 80 × (9/10)<sup>3</sup> = 80 × 0.729 = <b>58.32</b> litres."
+     ],
+     "explanation": "Repeated replacement is compound decay: final = initial × (1 − removed/capacity)<sup>n</sup>. 56 litres assumes 8 litres of milk leaves every time (simple subtraction), which is wrong after the first round because later you remove a mixture. 64.8 litres is the answer after two rounds."
+    },
+    {
+     "id": "b2q5",
+     "topic": "Alligation",
+     "level": "Hard",
+     "text": "Alloy A has gold and copper in the ratio 2 : 3, and alloy B has them in the ratio 7 : 3. In what ratio must A and B be melted together to get an alloy with gold and copper in the ratio 3 : 2?",
+     "options": [
+      "2:1",
+      "1:2",
+      "1:3",
+      "3:2"
+     ],
+     "answer": 1,
+     "solution": [
+      "Work with the fraction of gold: A is 2/5 = 0.4, B is 7/10 = 0.7, and the target is 3/5 = 0.6.",
+      "Alligation: A : B = (0.7 − 0.6) : (0.6 − 0.4) = 0.1 : 0.2 = <b>1 : 2</b>.",
+      "Check: 1 kg of A and 2 kg of B give 0.4 + 1.4 = 1.8 kg of gold in 3 kg, i.e. 0.6."
+     ],
+     "explanation": "Alligation only works on the same kind of quantity, here the gold fraction of each alloy. Converting both ratios to “share of gold” is the key step. 2 : 1 is the classic slip of writing the differences the wrong way round: the alloy closer to the target needs the larger share."
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "name": "Arithmetic",
+   "blurb": "Percentages, profit & loss, interest, time & work, speed",
+   "questions": [
+    {
+     "id": "b3q1",
+     "topic": "Percentages",
+     "level": "Easy",
+     "text": "A earns 25% more than B, and B earns 20% less than C. How does A’s salary compare with C’s?",
+     "options": [
+      "A earns 5% more",
+      "A earns 5% less",
+      "A and C earn the same",
+      "A earns 25% more"
+     ],
+     "answer": 2,
+     "solution": [
+      "Let C = 100. B is 20% less: B = 80.",
+      "A is 25% more than B: A = 80 × 1.25 = 100.",
+      "So A = C: they earn <b>the same</b>."
+     ],
+     "explanation": "A 20% fall is ×4/5 and a 25% rise is ×5/4; they cancel exactly. Remember the pair 20% ↔ 25%: a fall of 1/5 is undone by a rise of 1/4. The “5%” options come from adding and subtracting the percentages directly, which only works when they are applied to the same base."
+    },
+    {
+     "id": "b3q2",
+     "topic": "Profit & Loss",
+     "level": "Medium",
+     "text": "A trader marks goods 40% above cost and then allows two successive discounts of 10% each. What is the profit percentage?",
+     "options": [
+      "20%",
+      "12%",
+      "13.4%",
+      "14.6%"
+     ],
+     "answer": 2,
+     "solution": [
+      "Let cost = 100. Marked price = 140.",
+      "After the first 10% discount: 140 × 0.9 = 126.",
+      "After the second: 126 × 0.9 = 113.4.",
+      "Profit = 113.4 − 100 = <b>13.4%</b>."
+     ],
+     "explanation": "Successive changes multiply: 1.4 × 0.9 × 0.9 = 1.134. Two 10% discounts are a single 19% discount (10 + 10 − 10×10/100), not 20%. 20% subtracts the discounts from the markup; 12% treats the two discounts as 20% off and still subtracts wrongly."
+    },
+    {
+     "id": "b3q3",
+     "topic": "Interest",
+     "level": "Easy",
+     "text": "The difference between the compound interest and the simple interest on a sum for 2 years at 10% per annum is ₹150. What is the sum?",
+     "options": [
+      "₹7,500",
+      "₹15,000",
+      "₹1,500",
+      "₹30,000"
+     ],
+     "answer": 1,
+     "solution": [
+      "For 2 years, CI − SI = P × (r/100)<sup>2</sup>: it is the interest earned on the first year’s interest.",
+      "150 = P × (0.1)<sup>2</sup> = P × 0.01.",
+      "P = <b>₹15,000</b>."
+     ],
+     "explanation": "The only extra money under compound interest in year 2 is interest on year 1’s interest: P × r/100 × r/100. For 3 years the gap is P(r/100)<sup>2</sup>(3 + r/100). ₹1,500 multiplies by 10 instead of 100."
+    },
+    {
+     "id": "b3q4",
+     "topic": "Time & Work",
+     "level": "Medium",
+     "text": "A can finish a job in 12 days and B in 18 days. They work together for 4 days, and then A leaves. How many more days does B need to finish the job?",
+     "options": [
+      "6",
+      "7",
+      "8",
+      "10"
+     ],
+     "answer": 2,
+     "solution": [
+      "Take the job as 36 units (LCM of 12 and 18). A does 3 units a day, B does 2.",
+      "Together for 4 days: (3 + 2) × 4 = 20 units.",
+      "Remaining = 36 − 20 = 16 units, which B does at 2 a day: <b>8</b> more days."
+     ],
+     "explanation": "Choosing total work as the LCM of the individual times makes every rate a whole number and avoids fractions. 6 days assumes B works at A’s rate; 10 days forgets that B also worked during the first 4 days."
+    },
+    {
+     "id": "b3q5",
+     "topic": "Speed, Time & Distance",
+     "level": "Medium",
+     "text": "A train 240 m long passes a man walking at 6 km/h in the same direction in 16 seconds. What is the speed of the train?",
+     "options": [
+      "54 km/h",
+      "60 km/h",
+      "48 km/h",
+      "66 km/h"
+     ],
+     "answer": 1,
+     "solution": [
+      "To pass the man, the train covers its own length, 240 m, at the relative speed.",
+      "Relative speed = 240 ÷ 16 = 15 m/s = 15 × 18/5 = 54 km/h.",
+      "Same direction, so relative speed = train − man: train = 54 + 6 = <b>60 km/h</b>."
+     ],
+     "explanation": "Relative speed subtracts for same direction and adds for opposite directions. 54 km/h stops at the relative speed; 48 km/h subtracts the man’s speed instead of adding it back (that would be right only if they were moving towards each other); 66 km/h adds the man’s speed twice. Draw the directions before choosing + or −."
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "name": "Geometry",
+   "blurb": "Triangles, circles, polygons, mensuration, coordinates",
+   "questions": [
+    {
+     "id": "b4q1",
+     "topic": "Triangles",
+     "level": "Easy",
+     "text": "A right triangle has legs of 20 cm and 21 cm. What is the radius of its inscribed circle?",
+     "options": [
+      "5 cm",
+      "6 cm",
+      "10 cm",
+      "14.5 cm"
+     ],
+     "answer": 1,
+     "solution": [
+      "Hypotenuse = √(20² + 21²) = √841 = 29 cm.",
+      "For a right triangle, inradius r = (a + b − c)/2 = (20 + 21 − 29)/2 = <b>6 cm</b>.",
+      "Check with r = Area/s: area = 210, semi-perimeter s = 35, r = 6."
+     ],
+     "explanation": "20-21-29 is a Pythagorean triplet worth remembering. The formula r = (a + b − c)/2 comes from the two tangents from each acute vertex. 14.5 cm is the circumradius (half the hypotenuse), the most common mix-up with the inradius."
+    },
+    {
+     "id": "b4q2",
+     "topic": "Circles",
+     "level": "Medium",
+     "text": "Two parallel chords of a circle of radius 17 cm have lengths 16 cm and 30 cm, and lie on opposite sides of the centre. How far apart are the chords?",
+     "options": [
+      "7 cm",
+      "17 cm",
+      "23 cm",
+      "25 cm"
+     ],
+     "answer": 2,
+     "solution": [
+      "The perpendicular from the centre bisects a chord, so distance = √(r² − (half-chord)²).",
+      "16 cm chord: √(17² − 8²) = √225 = 15 cm from the centre.",
+      "30 cm chord: √(17² − 15²) = √64 = 8 cm from the centre.",
+      "Opposite sides of the centre, so the distances add: 15 + 8 = <b>23 cm</b>."
+     ],
+     "explanation": "8-15-17 is a triplet, which makes both distances whole numbers. If the chords were on the same side, the answer would be 15 − 8 = 7 cm, which is the trap option."
+    },
+    {
+     "id": "b4q3",
+     "topic": "Mensuration",
+     "level": "Medium",
+     "text": "A solid cone of base radius 6 cm and height 8 cm is melted and recast into solid spheres of radius 2 cm. How many spheres are made?",
+     "options": [
+      "6",
+      "9",
+      "18",
+      "27"
+     ],
+     "answer": 1,
+     "solution": [
+      "Cone volume = (1/3)πr²h = (1/3)π × 36 × 8 = 96π cm³.",
+      "Sphere volume = (4/3)πr³ = (4/3)π × 8 = (32/3)π cm³.",
+      "Number of spheres = 96π ÷ (32π/3) = 96 × 3/32 = <b>9</b>."
+     ],
+     "explanation": "Melting and recasting keeps volume the same. Write both volumes with π and cancel it. 27 forgets the 1/3 in the cone’s volume; 18 uses r² instead of r³ for the sphere."
+    },
+    {
+     "id": "b4q4",
+     "topic": "Polygons",
+     "level": "Easy",
+     "text": "Each interior angle of a regular polygon is 156°. How many diagonals does it have?",
+     "options": [
+      "75",
+      "90",
+      "105",
+      "120"
+     ],
+     "answer": 1,
+     "solution": [
+      "Exterior angle = 180° − 156° = 24°.",
+      "Exterior angles of any polygon add to 360°, so n = 360 ÷ 24 = 15 sides.",
+      "Diagonals = n(n − 3)/2 = 15 × 12/2 = <b>90</b>."
+     ],
+     "explanation": "Always go through the exterior angle: it gives the number of sides in one division. 105 is ¹⁵C₂, which counts the sides as well as the diagonals."
+    },
+    {
+     "id": "b4q5",
+     "topic": "Coordinate Geometry",
+     "level": "Easy",
+     "text": "What is the area of the triangle formed by the lines y = x, y = −x and y = 6?",
+     "options": [
+      "18",
+      "24",
+      "36",
+      "72"
+     ],
+     "answer": 2,
+     "solution": [
+      "y = x and y = −x meet at the origin.",
+      "y = 6 meets them at (6, 6) and (−6, 6).",
+      "Base = distance between (−6, 6) and (6, 6) = 12; height = 6 (distance of the base from the origin).",
+      "Area = ½ × 12 × 6 = <b>36</b> square units."
+     ],
+     "explanation": "Find the vertices first; with a horizontal base, area is just ½ × base × height. 18 uses a base of 6 (one side only); 72 forgets the ½."
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "name": "Algebra",
+   "blurb": "Quadratics, inequalities, logarithms, functions",
+   "questions": [
+    {
+     "id": "b5q1",
+     "topic": "Quadratic Equations",
+     "level": "Medium",
+     "text": "If α and β are the roots of x² − 7x + 10 = 0, what is α³ + β³?",
+     "options": [
+      "133",
+      "203",
+      "313",
+      "343"
+     ],
+     "answer": 0,
+     "solution": [
+      "Sum of roots α + β = 7; product αβ = 10.",
+      "α³ + β³ = (α + β)³ − 3αβ(α + β) = 343 − 3 × 10 × 7 = 343 − 210 = <b>133</b>.",
+      "Check: the roots are 2 and 5, and 8 + 125 = 133."
+     ],
+     "explanation": "Express symmetric expressions through the sum and product of roots; you never need the roots themselves. 343 is just (α + β)³; 313 subtracts 3αβ but forgets the (α + β) factor; 203 is (α + β)(α² + β²), which misses the −αβ term in α² − αβ + β²."
+    },
+    {
+     "id": "b5q2",
+     "topic": "Inequalities",
+     "level": "Hard",
+     "text": "How many integers x satisfy |x − 3| + |x + 2| ≤ 9?",
+     "options": [
+      "6",
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 2,
+     "solution": [
+      "|x − 3| + |x + 2| is the total distance from x to 3 and to −2 on the number line.",
+      "For any x between −2 and 3 that total is exactly 5, which is ≤ 9: all of −2…3 work.",
+      "For x > 3: (x − 3) + (x + 2) = 2x − 1 ≤ 9 gives x ≤ 5.",
+      "For x < −2: (3 − x) + (−2 − x) = 1 − 2x ≤ 9 gives x ≥ −4.",
+      "So −4 ≤ x ≤ 5: <b>10</b> integers."
+     ],
+     "explanation": "Read |x − a| as distance. Between the two points the sum is constant (the gap, 5); outside, it grows by 2 for every unit you move away. With 9 − 5 = 4 to spare, you can move 2 units beyond each end. 6 counts only −2…3; 9 or 11 are off-by-one slips at the endpoints."
+    },
+    {
+     "id": "b5q3",
+     "topic": "Logarithms",
+     "level": "Easy",
+     "text": "Solve log₂(x − 1) + log₂(x + 1) = 3.",
+     "options": [
+      "x = −3",
+      "x = 2",
+      "x = 3",
+      "x = 9"
+     ],
+     "answer": 2,
+     "solution": [
+      "Combine: log₂[(x − 1)(x + 1)] = 3, so x² − 1 = 2³ = 8.",
+      "x² = 9, so x = 3 or x = −3.",
+      "Logs need positive arguments: x − 1 > 0, so x > 1. Reject −3.",
+      "Answer: <b>x = 3</b>."
+     ],
+     "explanation": "After solving any log equation, check that every original log argument is positive. x = −3 is the classic extraneous root; x = 9 comes from treating log₂ 8 as 9 instead of 3."
+    },
+    {
+     "id": "b5q4",
+     "topic": "Functions",
+     "level": "Easy",
+     "text": "If f(x) = 2x + 3 and g(x) = x² − 1, what is f(g(2)) − g(f(1))?",
+     "options": [
+      "−15",
+      "−13",
+      "0",
+      "15"
+     ],
+     "answer": 0,
+     "solution": [
+      "g(2) = 4 − 1 = 3, so f(g(2)) = f(3) = 9.",
+      "f(1) = 5, so g(f(1)) = g(5) = 24.",
+      "f(g(2)) − g(f(1)) = 9 − 24 = <b>−15</b>."
+     ],
+     "explanation": "Evaluate composite functions from the inside out. f(g(x)) and g(f(x)) are generally different. 15 has the subtraction reversed; 0 assumes the composition order does not matter."
+    },
+    {
+     "id": "b5q5",
+     "topic": "Functions",
+     "level": "Medium",
+     "text": "What is the maximum value of f(x) = min(x + 5, 11 − 2x) over all real x?",
+     "options": [
+      "5",
+      "7",
+      "9",
+      "11"
+     ],
+     "answer": 1,
+     "solution": [
+      "x + 5 increases and 11 − 2x decreases, so their minimum is largest where the two are equal.",
+      "x + 5 = 11 − 2x gives 3x = 6, x = 2.",
+      "f(2) = 2 + 5 = <b>7</b>."
+     ],
+     "explanation": "The maximum of the minimum of a rising and a falling line is at their intersection: anywhere else, one of them is lower. 11 and 5 are each line’s value at x = 0, and 9 is a midpoint guess."
+    }
+   ]
+  },
+  {
+   "id": "b6",
+   "name": "Counting",
+   "blurb": "Permutations, combinations, probability, sets",
+   "questions": [
+    {
+     "id": "b6q1",
+     "topic": "Permutations",
+     "level": "Easy",
+     "text": "In how many different ways can the letters of the word LETTER be arranged?",
+     "options": [
+      "90",
+      "180",
+      "360",
+      "720"
+     ],
+     "answer": 1,
+     "solution": [
+      "LETTER has 6 letters: L, E, T, T, E, R. E and T each appear twice.",
+      "Arrangements = 6!/(2! × 2!) = 720/4 = <b>180</b>."
+     ],
+     "explanation": "Divide by the factorial of each repeat count, because swapping identical letters gives the same word. 720 ignores the repeats; 360 divides out only one of the two pairs."
+    },
+    {
+     "id": "b6q2",
+     "topic": "Circular Arrangements",
+     "level": "Medium",
+     "text": "Six people sit around a round table. In how many ways can they sit if two particular people must not sit next to each other?",
+     "options": [
+      "48",
+      "72",
+      "96",
+      "120"
+     ],
+     "answer": 1,
+     "solution": [
+      "Total circular arrangements of 6 = (6 − 1)! = 120.",
+      "Arrangements with the two together: treat them as one unit, so 5 units around the table = 4! = 24, times 2 for their internal order = 48.",
+      "Not together = 120 − 48 = <b>72</b>."
+     ],
+     "explanation": "For “not together”, count all and subtract “together”. Circular arrangements fix one seat, which is why it is (n − 1)!. 48 is the together count; 120 is the total."
+    },
+    {
+     "id": "b6q3",
+     "topic": "Probability",
+     "level": "Medium",
+     "text": "Two fair dice are thrown. What is the probability that the sum is a prime number?",
+     "options": [
+      "1/3",
+      "7/18",
+      "5/12",
+      "1/2"
+     ],
+     "answer": 2,
+     "solution": [
+      "Possible prime sums: 2, 3, 5, 7, 11.",
+      "Ways: 2 → 1, 3 → 2, 5 → 4, 7 → 6, 11 → 2. Total 15 of 36 outcomes.",
+      "Probability = 15/36 = <b>5/12</b>."
+     ],
+     "explanation": "For two dice, the number of ways to get sum s is 6 − |s − 7|. 7/18 (14/36) usually misses one way for 5 or 11; 1/2 is a guess."
+    },
+    {
+     "id": "b6q4",
+     "topic": "Distributions",
+     "level": "Medium",
+     "text": "How many solutions in positive integers does a + b + c = 10 have?",
+     "options": [
+      "36",
+      "45",
+      "55",
+      "66"
+     ],
+     "answer": 0,
+     "solution": [
+      "Positive integers: give each of a, b, c one unit first, leaving 7 to distribute freely.",
+      "Non-negative solutions of x + y + z = 7 = ⁹C₂ = 36 (7 stars and 2 bars).",
+      "Equivalently, ⁽ⁿ⁻¹⁾C₍ᵣ₋₁₎ = ⁹C₂ = <b>36</b>."
+     ],
+     "explanation": "Positive solutions of x₁ + … + x<sub>r</sub> = n number ⁿ⁻¹C<sub>r−1</sub>; non-negative ones number ⁿ⁺ʳ⁻¹C<sub>r−1</sub>. 66 = ¹²C₂ counts non-negative solutions (zeros allowed), which the question excludes."
+    },
+    {
+     "id": "b6q5",
+     "topic": "Set Theory",
+     "level": "Easy",
+     "text": "In a group of 60 people, 35 like tea, 30 like coffee and 12 like neither. How many like both?",
+     "options": [
+      "5",
+      "13",
+      "17",
+      "23"
+     ],
+     "answer": 2,
+     "solution": [
+      "People who like at least one = 60 − 12 = 48.",
+      "n(T ∪ C) = n(T) + n(C) − n(T ∩ C): 48 = 35 + 30 − both.",
+      "Both = 65 − 48 = <b>17</b>."
+     ],
+     "explanation": "Always remove the “neither” group before using the union formula. 5 forgets the 12 who like neither (65 − 60)."
+    }
+   ]
+  }
+ ]
+}
